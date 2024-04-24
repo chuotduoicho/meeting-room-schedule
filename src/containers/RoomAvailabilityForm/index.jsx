@@ -13,22 +13,15 @@ function RoomAvailabilityForm({ setRoomAvailability }) {
   };
 
   return (
-    <>
-      <form
-        onSubmit={handleFormSubmit}
-        style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+    <div className="availability-form-container">
+      <form onSubmit={handleFormSubmit} className="availability-form">
         <label htmlFor="openTime">Open Time:</label>
         <input
           type="time"
           id="openTime"
           value={openTime}
           onChange={(e) => setOpenTime(e.target.value)}
+          className="time-input"
         />
         <label htmlFor="closeTime">Close Time:</label>
         <input
@@ -36,6 +29,7 @@ function RoomAvailabilityForm({ setRoomAvailability }) {
           id="closeTime"
           value={closeTime}
           onChange={(e) => setCloseTime(e.target.value)}
+          className="time-input"
         />
         <button type="submit" disabled={isInvalidTimeRange}>
           Set Availability
@@ -44,7 +38,7 @@ function RoomAvailabilityForm({ setRoomAvailability }) {
       <p style={{ color: "red" }}>
         {isInvalidTimeRange && "Close time must be later than open time"}
       </p>
-    </>
+    </div>
   );
 }
 

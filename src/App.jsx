@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RoomAvailabilityForm from "./RoomAvailabilityForm";
-import MeetingScheduler from "./MeetingScheduler";
+import MeetingScheduler from "./containers/MeetingScheduler";
+import RoomAvailabilityForm from "./containers/RoomAvailabilityForm";
 import "./App.css";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     roomAvailability.openTime && roomAvailability.closeTime;
 
   return (
-    <div>
+    <>
       <h1>Meeting Room Scheduler</h1>
       <RoomAvailabilityForm setRoomAvailability={setRoomAvailability} />
       {isSelectingTime ? (
@@ -21,7 +21,7 @@ function App() {
       ) : (
         <p>Set room availability to schedule a meeting</p>
       )}
-    </div>
+    </>
   );
 }
 
